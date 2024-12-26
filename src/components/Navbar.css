@@ -1,0 +1,150 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fbfbf5;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the navbar */
+    width: 100%;
+    max-width: 825px; /* Should match the max-width in App.css */
+    z-index: 1000;
+  }
+  
+.logo {
+display: flex;
+align-items: center;
+gap: 0.1rem;
+font-size: 1.2rem;
+}
+
+.logo-symbol {
+font-weight: bold;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: larger;
+  color: #F67280;
+  margin-left: -0.7rem;
+  margin-bottom: -0.1rem;
+}
+
+
+.logo-last-name-text {
+  font-weight: bold;
+  font-size: larger;
+  color: #3F4E4F;
+  padding-left: 0.3rem;
+  margin-bottom: -0.1rem;
+  opacity: 0.8;
+}
+
+.nav-links {
+display: flex;
+align-items: center;
+gap: 2rem;
+position: relative;
+}
+
+.nav-item {
+text-decoration: none;
+color: #3F4E4F;
+font-size: 1rem;
+font-weight: 600;
+transition: color 0.3s ease;
+opacity: 0.8;
+}
+
+.nav-item:hover {
+color: #F67280;
+}
+
+.more-menu-button {
+background: none;
+border: none;
+cursor: pointer;
+font-size: 1.2rem;
+/* padding: 0.5rem; */
+color: #3F4E4F;
+opacity: 0.8;
+position: relative;
+width: 30px;
+}
+
+/* .button-text {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  color: #3F4E4F;
+  opacity: 0.8;
+} */
+
+
+/* .more-menu-button:hover .button-text {
+  content: '×';
+    
+} */
+
+/* Specific styling for X when menu is open */
+.menu-open .button-text {
+  font-size: 1.5rem; /* Bigger X */
+  font-weight: bold;  /* Bolder X */
+}
+
+/* This ensures the button text stays white when menu is open */
+.more-menu-button[aria-expanded="true"] .button-text {
+  color: #3F4E4F;
+  opacity: 0.8;
+}
+
+.more-menu-button:hover {
+  color: #F67280; 
+}
+
+.dropdown-menu {
+position: absolute;
+top: 100%;
+right: 0;
+background: white;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+padding: 0.5rem 0;
+min-width: 150px;
+margin-top: 0.5rem;
+font-weight: 600;
+}
+
+.dropdown-menu a {
+display: block;
+padding: 0.5rem 1rem;
+text-decoration: none;
+color: #3F4E4F;
+transition: background-color 0.3s ease;
+opacity: 0.8;
+}
+
+.dropdown-menu a:hover {
+background-color: #f5f5f5;
+color: #F67280;
+}
+
+
+.logo-symbol svg {
+    fill: #F67280;  /* Change to any color */
+  }
+  
+  /* Change color on hover */
+
+.logo:hover .logo-symbol svg {
+  fill: #3F4E4F;
+}
+
+.logo:hover .logo-text,
+.logo:hover .logo-last-name-text {
+  color: #3F4E4F;
+  opacity: 1;
+  transition:  color 0.5s;
+}
+
