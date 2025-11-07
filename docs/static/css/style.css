@@ -1,0 +1,323 @@
+/* Modern Portfolio Styles with Animations */
+
+/* Import Inter font as body font */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Main navigation bar link styles - beautiful centered navbar */
+.nav-link {
+    color: #6b7280;
+    font-weight: 800;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+    padding: 10px 12px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background: #3b82f6;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Contact button with gradient outline */
+.contact-btn {
+    position: relative;
+    padding: 0.5rem 1.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #111827;
+    border-radius: 9999px;
+    background: white;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 9999px;
+    padding: 2px;
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+}
+
+.contact-btn:hover {
+    color: white;
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+}
+
+/* Sidebar link styles - beautiful and aligned with theme */
+.sidebar-link {
+    @apply block py-3 px-5 text-white/80 hover:text-white hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-blue-600/20 rounded-lg transition-all duration-300 font-medium text-base;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link:hover {
+    transform: translateX(6px);
+    border-left-color: rgba(59, 130, 246, 0.8);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+/* Animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.wave-hand {
+    animation: wave 2s ease-in-out infinite;
+    transform-origin: 70% 70%;
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+}
+
+.animate-slide-up {
+    animation: slide-up 1s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.animate-fade-in-delay {
+    animation: fade-in 1s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+.animate-blink {
+    animation: blink 1s step-start infinite;
+}
+
+/* Section spacing for content after sidebar */
+.main-content {
+    margin-left: 320px;
+    min-height: 100vh;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* Glassmorphism utility classes */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Section with padding */
+.section-padding {
+    @apply py-20 px-8 md:px-16 lg:px-24;
+}
+
+/* Status dot - pulsing green indicator */
+.status-dot {
+    animation: pulse-glow 2s ease-in-out infinite;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+}
+
+/* Skill tags - modern badge style */
+.skill-tag {
+    @apply inline-block px-2 py-1 bg-blue-500/20 text-white/90 text-xs rounded border border-blue-400/30 hover:bg-blue-500/30 hover:border-blue-400/50 transition-all duration-200;
+}
+
+/* Category chip - like Material Design chips */
+.category-chip {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s;
+}
+
+.category-chip:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
+
+/* Glass card for about section */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Scroll-triggered fade in animation */
+.fade-in-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Scrolling skill rows - left direction */
+.animate-scroll-left {
+    animation: scroll-left 30s linear infinite;
+}
+
+.animate-scroll-left:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Scrolling skill rows - right direction */
+.animate-scroll-right {
+    animation: scroll-right 30s linear infinite;
+}
+
+.animate-scroll-right:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
