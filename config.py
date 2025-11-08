@@ -143,7 +143,7 @@ EXPERIENCE = [
     {
         "company": "Xaigi Technology",
         "location": "Noida, India",
-        "role": "Data Scientist | Gen AI Solution Architect",
+        "role": "Project Lead | Gen AI Solution Architect",
         "date": "January 2024 - August 2025",
         "description": "As a Project Lead and Generative AI Architect, I led the development of AI-driven solutions and designed intelligent agent-based systems. My focus was on building scalable architectures using LLMs and multi-agent frameworks to automate financial workflows.\n\nKey project: Built a multi-agent conversational AI system integrated with QuickBooks, WooCommerce, and Shopify, achieving 90% automation of financial queries."
     },
