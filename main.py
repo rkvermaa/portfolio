@@ -13,7 +13,6 @@ from fasthtml.common import *
 
 # Import our components
 from components.sidebar import ModernSidebar
-from components.hero import ModernHero
 from components.about import AboutSection
 from components.experience import ExperienceSection
 from components.skills import SkillsSection
@@ -65,14 +64,14 @@ def get():
     # All data comes from src/config.py - making it easy to update
     # We use **PERSONAL_INFO to unpack the dictionary as keyword arguments
 
-    # Prepare animated titles for typing effect (including name)
-    animated_titles = [
-        "Ravi Kumar Verma",
-        "Full-Stack AI Engineer",
+    # Prepare animated titles for typing effect (from config)
+    animated_titles = PERSONAL_INFO.get("animated_titles", [
+        PERSONAL_INFO["name"],
+        PERSONAL_INFO["title"],
         "GenAI Solutions Architect",
         "LLM Specialist",
         "AI/ML Solutions Builder"
-    ]
+    ])
 
     return (
         Title(f"{PERSONAL_INFO['name']} - {PERSONAL_INFO['title']}"),

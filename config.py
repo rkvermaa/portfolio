@@ -20,6 +20,14 @@ PERSONAL_INFO = {
     "linkedin": "https://linkedin.com/in/yourprofile",  # Update with your LinkedIn
     "github": "https://github.com/yourusername",  # Update with your GitHub
     "profile_image": "static/images/notion-avatar-1762452759393.png",  # Your Notion avatar
+    # Typing animation titles (shown on hero section)
+    "animated_titles": [
+        "Ravi Kumar Verma",  # Will be auto-filled with name
+        "Full-Stack AI Engineer",  # Will be auto-filled with title
+        "GenAI Solutions Architect",
+        "LLM Specialist",
+        "AI/ML Solutions Builder"
+    ],
 }
 
 # Skills for sidebar
