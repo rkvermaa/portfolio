@@ -4,9 +4,10 @@ Modern Glassmorphism Sidebar Component
 Creates a transparent, blurred sidebar with glass effect.
 """
 from fasthtml.common import *
+from datetime import datetime
 
 def ModernSidebar(name="Your Name", title="Your Title", subtitle="", email="your@email.com",
-                  phone="+91 XXXXX XXXXX", location="India", age="25 Years", freelance="Available",
+                  phone="+91 XXXXX XXXXX", location="India", age="25 Years", birth_year=None, freelance="Available",
                   linkedin="#", github="#", twitter="#", instagram="#",
                   profile_image="static/images/profile.jpg", skills_major=None):
     """
@@ -17,6 +18,12 @@ def ModernSidebar(name="Your Name", title="Your Title", subtitle="", email="your
     - Fixed position sidebar that overlays content
     - Smooth transitions and hover effects
     """
+
+    # Calculate age from birth_year if provided
+    if birth_year:
+        current_year = datetime.now().year
+        calculated_age = current_year - birth_year
+        age = f"{calculated_age} Years"
 
     if skills_major is None:
         skills_major = [

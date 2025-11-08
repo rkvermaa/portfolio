@@ -10,6 +10,7 @@ Key Concepts:
 4. serve() starts the web server
 """
 from fasthtml.common import *
+from datetime import datetime
 
 # Import our components
 from components.sidebar import ModernSidebar
@@ -30,8 +31,10 @@ from config import (
 # FastHTML automatically serves files from 'static/' directory
 app, rt = fast_app(
     hdrs=(
-        # Favicon
-        Link(rel="icon", type="image/png", href=f"static/images/{PERSONAL_INFO['profile_image'].split('/')[-1]}"),
+        # Favicons - multiple sizes for better quality
+        Link(rel="icon", type="image/png", sizes="32x32", href=f"static/images/{PERSONAL_INFO['profile_image'].split('/')[-1]}"),
+        Link(rel="icon", type="image/png", sizes="16x16", href=f"static/images/{PERSONAL_INFO['profile_image'].split('/')[-1]}"),
+        Link(rel="apple-touch-icon", sizes="180x180", href=f"static/images/{PERSONAL_INFO['profile_image'].split('/')[-1]}"),
         # Tailwind CSS via CDN
         Script(src="https://cdn.tailwindcss.com"),
         # Modern CSS for animations and custom styles
@@ -98,6 +101,7 @@ def get():
             phone=PERSONAL_INFO.get("phone", "+91 XXXXX XXXXX"),
             location=PERSONAL_INFO.get("location", "India"),
             age=PERSONAL_INFO.get("age", "25 Years"),
+            birth_year=PERSONAL_INFO.get("birth_year"),  # Auto-calculates age
             freelance=PERSONAL_INFO.get("freelance", "Available"),
             linkedin=PERSONAL_INFO.get("linkedin", "#"),
             github=PERSONAL_INFO.get("github", "#"),
@@ -299,7 +303,7 @@ def get():
                     A("Skills", href="#skills", cls="nav-link"),
                     A("Portfolio", href="#portfolio", cls="nav-link"),
                     A("Services", href="#services", cls="nav-link"),
-                    A("Contact", href="#contact", cls="px-5 py-1.5 bg-gray-900 text-white font-semibold text-sm rounded-full hover:bg-gray-800 transition-all duration-300"),
+                    A("Contact", href="#contact", cls="px-5 py-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 text-white font-semibold text-sm rounded-full transition-all duration-300 hover:scale-105 shadow-lg"),
                     cls="flex items-center justify-center gap-3"
                 ),
                 cls="hidden lg:block fixed top-4 left-[17rem] right-4 z-40 bg-white/30 backdrop-blur-md px-4 py-1.5 shadow-lg border border-gray-300/50 rounded-full max-w-fit mx-auto"
@@ -327,11 +331,11 @@ def get():
                         Span(
                             "",
                             id="typing-text",
-                            cls="text-lg sm:text-xl md:text-3xl lg:text-4xl text-blue-400 font-bold"
+                            cls="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
                         ),
                         Span(
                             "|",
-                            cls="text-lg sm:text-xl md:text-3xl lg:text-4xl text-blue-400 animate-blink ml-1"
+                            cls="text-lg sm:text-xl md:text-3xl lg:text-4xl text-purple-400 animate-blink ml-1"
                         ),
                         cls="mb-6 sm:mb-10 px-4"
                     ),
@@ -394,10 +398,10 @@ def get():
                                 cls="text-gray-600 text-lg font-medium mb-4 text-center"
                             ),
 
-                            # Copyright
+                            # Copyright with dynamic year
                             Div(
                                 Span("© ", cls="text-gray-500"),
-                                Span("2025", cls="text-gray-700 font-semibold"),
+                                Span(str(datetime.now().year), cls="text-gray-700 font-semibold"),
                                 Span(" ", cls="text-gray-500"),
                                 Span(PERSONAL_INFO["name"], cls="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 font-bold"),
                                 Span(". All rights reserved.", cls="text-gray-500"),

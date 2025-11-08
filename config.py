@@ -12,13 +12,14 @@ PERSONAL_INFO = {
     "name": "Ravi Kumar Verma",
     "title": "Full-Stack AI Engineer",
     "subtitle": "LLM • GenAI • ML",
-    "email": "your.email@example.com",  # Update with your real email
-    "phone": "+91 XXXXX XXXXX",  # Update with your real phone
+    "email": "rkverma87@gmail.com",  # Update with your real email
+    "phone": "+91 7409210692",  # Update with your real phone
     "location": "India",
-    "age": "Your Age",  # Update with your age
+    "birth_year": 1987,  # Your birth year (age will be auto-calculated)
+    "age": "37 years",  # This will be auto-calculated from birth_year
     "freelance": "Available",
-    "linkedin": "https://linkedin.com/in/yourprofile",  # Update with your LinkedIn
-    "github": "https://github.com/yourusername",  # Update with your GitHub
+    "linkedin": "https://www.linkedin.com/in/ravi-kumar-verma-16837734/",  # Update with your LinkedIn
+    "github": "https://github.com/rkvermaa",  # Update with your GitHub
     "profile_image": "static/images/notion-avatar-1762452759393.png",  # Your Notion avatar
     # Typing animation titles (shown on hero section)
     "animated_titles": [
