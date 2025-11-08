@@ -1,8 +1,8 @@
 /* Modern Portfolio Styles with Animations */
 
-/* Import Inter font as body font */
+/* Poppins font as body font - Modern & Professional */
 body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;

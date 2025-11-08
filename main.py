@@ -40,7 +40,7 @@ app, rt = fast_app(
         # Modern CSS for animations and custom styles
         Link(rel="stylesheet", href="static/css/style.css?v=11"),
         # Google Fonts for modern typography
-        Link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"),
+        Link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"),
         # Lucide Icons
         Script(src="https://unpkg.com/lucide@latest"),
     ),
@@ -297,7 +297,7 @@ def get():
             # Desktop navigation bar (full menu with glassy background)
             Nav(
                 Div(
-                    A("Home", href="index.html", cls="nav-link"),
+                    A("Home", href="#", onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;", cls="nav-link"),
                     A("About", href="#about", cls="nav-link"),
                     A("Experience", href="#experience", cls="nav-link"),
                     A("Skills", href="#skills", cls="nav-link"),
