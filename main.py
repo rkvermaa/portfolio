@@ -297,7 +297,7 @@ def get():
             # Desktop navigation bar (full menu with glassy background)
             Nav(
                 Div(
-                    A("Home", href="/portfolio/", cls="nav-link"),
+                    A("Home", href="#", onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;", cls="nav-link"),
                     A("About", href="#about", cls="nav-link"),
                     A("Experience", href="#experience", cls="nav-link"),
                     A("Skills", href="#skills", cls="nav-link"),
