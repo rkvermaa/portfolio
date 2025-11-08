@@ -92,10 +92,10 @@ def PortfolioSection(projects_list):
                             ),
 
                             cls="relative h-96 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] cursor-pointer",
-                            onclick="this.parentElement.classList.toggle('active')"
+                            onclick="const cards = document.querySelectorAll('.portfolio-card'); cards.forEach(c => c.classList.remove('active')); this.parentElement.classList.toggle('active');"
                         ),
 
-                        cls="group fade-in-scroll"
+                        cls="group fade-in-scroll portfolio-card"
                     )
                     for project in projects_list
                 ],

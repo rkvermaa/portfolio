@@ -23,15 +23,15 @@ def HeroSection(animated_titles):
             ),
             # I Am [typing animation] - cycles through name and titles
             Div(
-                Span("I Am ", cls="text-lg sm:text-xl md:text-3xl lg:text-4xl text-white font-light"),
+                Span("I Am ", cls="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-light"),
                 Span(
                     "",
                     id="typing-text",
-                    cls="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+                    cls="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
                 ),
                 Span(
                     "|",
-                    cls="text-lg sm:text-xl md:text-3xl lg:text-4xl text-purple-400 animate-blink ml-1"
+                    cls="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-purple-400 animate-blink ml-1"
                 ),
                 cls="mb-6 sm:mb-10"
             ),
