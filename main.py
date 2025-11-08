@@ -30,6 +30,8 @@ from config import (
 # FastHTML automatically serves files from 'static/' directory
 app, rt = fast_app(
     hdrs=(
+        # Favicon
+        Link(rel="icon", type="image/png", href=f"static/images/{PERSONAL_INFO['profile_image'].split('/')[-1]}"),
         # Tailwind CSS via CDN
         Script(src="https://cdn.tailwindcss.com"),
         # Modern CSS for animations and custom styles
