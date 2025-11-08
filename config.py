@@ -137,14 +137,14 @@ EXPERIENCE = [
         "company": "Passageway",
         "location": "Jaipur, India",
         "role": "Lead Data Scientist",
-        "date": "August 2024 - Present",
+        "date": "August 2025 - Present",
         "description": "As a Lead Data Scientist, I architect and deploy enterprise-scale data infrastructure and intelligent ML systems. Currently building scalable solutions for UPCL smart meter analytics, processing terabytes of data from 600,000+ meters.\n\nKey project: Redesigned data architecture from failing PostgreSQL to scalable lakehouse using MinIO, Dremio, and ClickHouse, with ML models for energy forecasting and tampering detection."
     },
     {
         "company": "Xaigi Technology",
         "location": "Noida, India",
         "role": "Data Scientist | Gen AI Solution Architect",
-        "date": "January 2024 - August 2024",
+        "date": "January 2024 - August 2025",
         "description": "As a Project Lead and Generative AI Architect, I led the development of AI-driven solutions and designed intelligent agent-based systems. My focus was on building scalable architectures using LLMs and multi-agent frameworks to automate financial workflows.\n\nKey project: Built a multi-agent conversational AI system integrated with QuickBooks, WooCommerce, and Shopify, achieving 90% automation of financial queries."
     },
     {
