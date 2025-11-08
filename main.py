@@ -381,7 +381,9 @@ def get():
                 ContactSection(
                     email=PERSONAL_INFO["email"],
                     phone=PERSONAL_INFO["phone"],
-                    location=PERSONAL_INFO["location"]
+                    location=PERSONAL_INFO["location"],
+                    linkedin=PERSONAL_INFO["linkedin"],
+                    github=PERSONAL_INFO["github"]
                 ),
 
                 # Footer

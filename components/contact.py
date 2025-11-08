@@ -3,7 +3,7 @@ Modern Contact Section with Map Background
 """
 from fasthtml.common import *
 
-def ContactSection(email="your@email.com", phone="+91 XXXXX XXXXX", location="India"):
+def ContactSection(email="your@email.com", phone="+91 XXXXX XXXXX", location="India", linkedin="#", github="#", twitter="#", instagram="#"):
     """
     Creates a stunning contact section with map background and contact form.
     """
@@ -40,6 +40,20 @@ def ContactSection(email="your@email.com", phone="+91 XXXXX XXXXX", location="In
 
                         # Form
                         Form(
+                            # Web3Forms Access Key (hidden field)
+                            Input(
+                                type="hidden",
+                                name="access_key",
+                                value="YOUR_ACCESS_KEY_HERE"
+                            ),
+
+                            # Redirect URL after submission (optional - keeps user on your site)
+                            Input(
+                                type="hidden",
+                                name="redirect",
+                                value="https://rkvermaa.github.io/portfolio/#contact"
+                            ),
+
                             # Name and Email in one row on desktop, stacked on mobile
                             Div(
                                 Div(
@@ -91,7 +105,7 @@ def ContactSection(email="your@email.com", phone="+91 XXXXX XXXXX", location="In
                             ),
 
                             method="POST",
-                            action="/contact"
+                            action="https://api.web3forms.com/submit"
                         ),
 
                         cls="p-4 sm:p-8 rounded-2xl bg-white shadow-lg border border-gray-200"
@@ -151,10 +165,10 @@ def ContactSection(email="your@email.com", phone="+91 XXXXX XXXXX", location="In
                         Div(
                             H4("Follow Me", cls="text-gray-800 font-semibold mb-4"),
                             Div(
-                                A(I(data_lucide="linkedin", cls="w-5 h-5"), href="#", cls="w-12 h-12 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-500 hover:border-blue-500 hover:text-white transition-all text-gray-700"),
-                                A(I(data_lucide="github", cls="w-5 h-5"), href="#", cls="w-12 h-12 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-700 hover:border-gray-700 hover:text-white transition-all text-gray-700"),
-                                A(I(data_lucide="facebook", cls="w-5 h-5"), href="#", cls="w-12 h-12 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all text-gray-700"),
-                                A(I(data_lucide="instagram", cls="w-5 h-5"), href="#", cls="w-12 h-12 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-pink-500 hover:border-pink-500 hover:text-white transition-all text-gray-700"),
+                                A(I(data_lucide="linkedin", cls="w-5 h-5"), href=linkedin, target="_blank", cls="w-12 h-12 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-500 hover:border-blue-500 hover:text-white transition-all text-gray-700"),
+                                A(I(data_lucide="github", cls="w-5 h-5"), href=github, target="_blank", cls="w-12 h-12 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-700 hover:border-gray-700 hover:text-white transition-all text-gray-700"),
+                                A(I(data_lucide="facebook", cls="w-5 h-5"), href=twitter, target="_blank", cls="w-12 h-12 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all text-gray-700"),
+                                A(I(data_lucide="instagram", cls="w-5 h-5"), href=instagram, target="_blank", cls="w-12 h-12 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-pink-500 hover:border-pink-500 hover:text-white transition-all text-gray-700"),
                                 cls="flex gap-3"
                             ),
                             cls="fade-in-scroll"
