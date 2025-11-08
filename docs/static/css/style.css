@@ -31,36 +31,24 @@ html {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Main navigation bar link styles - beautiful centered navbar */
+/* Main navigation bar link styles - slim pill navbar */
 .nav-link {
-    color: #6b7280;
-    font-weight: 800;
-    font-size: 1.125rem;
+    color: #000000;
+    font-weight: 500;
+    font-size: 0.9375rem;
     transition: all 0.3s ease;
     position: relative;
     white-space: nowrap;
-    padding: 10px 12px;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: 80%;
-    height: 2px;
-    background: #3b82f6;
-    transition: transform 0.3s ease;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    z-index: 1;
 }
 
 .nav-link:hover {
-    color: #000000;
-    transform: translateY(-2px);
-}
-
-.nav-link:hover::after {
-    transform: translateX(-50%) scaleX(1);
+    color: #3b82f6;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 /* Contact button with gradient outline */
@@ -221,7 +209,46 @@ html {
 
 /* Section with padding */
 .section-padding {
-    @apply py-20 px-8 md:px-16 lg:px-24;
+    @apply py-12 px-4 sm:py-16 sm:px-8 md:px-16 lg:py-20 lg:px-24;
+}
+
+/* Mobile skill chip - compact version for mobile sidebar */
+.mobile-skill-chip {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.2s;
+}
+
+.mobile-skill-chip:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Mobile menu improvements */
+@media (max-width: 1023px) {
+    /* Ensure content is not hidden behind mobile nav */
+    section {
+        scroll-margin-top: 80px;
+    }
+
+    /* Better touch targets for mobile */
+    button, a {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Hide skills section on mobile since it's in the sidebar */
+    #skills {
+        display: none;
+    }
 }
 
 /* Status dot - pulsing green indicator */
@@ -238,10 +265,10 @@ html {
 /* Category chip - like Material Design chips */
 .category-chip {
     display: inline-block;
-    padding: 0.5rem 1.25rem;
+    padding: 0.25rem 0.65rem;
     background: rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.9);
-    font-size: 0.8125rem;
+    font-size: 0.6875rem;
     font-weight: 500;
     border-radius: 9999px;
     border: 1px solid rgba(255, 255, 255, 0.2);
