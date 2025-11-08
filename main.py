@@ -297,7 +297,7 @@ def get():
             # Desktop navigation bar (full menu with glassy background)
             Nav(
                 Div(
-                    A("Home", href="#hero", cls="nav-link"),
+                    A("Home", href="/", cls="nav-link"),
                     A("About", href="#about", cls="nav-link"),
                     A("Experience", href="#experience", cls="nav-link"),
                     A("Skills", href="#skills", cls="nav-link"),
