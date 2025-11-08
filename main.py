@@ -14,6 +14,7 @@ from datetime import datetime
 
 # Import our components
 from components.sidebar import ModernSidebar
+from components.hero import HeroSection
 from components.about import AboutSection
 from components.experience import ExperienceSection
 from components.skills import SkillsSection
@@ -297,7 +298,7 @@ def get():
             # Desktop navigation bar (full menu with glassy background)
             Nav(
                 Div(
-                    A("Home", href="#", onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;", cls="nav-link"),
+                    A("Home", href="#home", onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return true;", cls="nav-link"),
                     A("About", href="#about", cls="nav-link"),
                     A("Experience", href="#experience", cls="nav-link"),
                     A("Skills", href="#skills", cls="nav-link"),
@@ -317,45 +318,7 @@ def get():
             ),
 
             # Hero section - FIXED like background, doesn't scroll
-            Div(
-                Div(
-                    # Hi There! - static with waving hand
-                    P(
-                        Span("Hi There!", cls="font-bold"),
-                        Span(" 👋", cls="inline-block wave-hand"),
-                        cls="text-lg sm:text-xl md:text-2xl text-blue-200 mb-4 sm:mb-6 animate-fade-in tracking-wide"
-                    ),
-                    # I Am [typing animation] - cycles through name and titles
-                    Div(
-                        Span("I Am ", cls="text-lg sm:text-xl md:text-3xl lg:text-4xl text-white font-light"),
-                        Span(
-                            "",
-                            id="typing-text",
-                            cls="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
-                        ),
-                        Span(
-                            "|",
-                            cls="text-lg sm:text-xl md:text-3xl lg:text-4xl text-purple-400 animate-blink ml-1"
-                        ),
-                        cls="mb-6 sm:mb-10 px-4"
-                    ),
-                    # Scroll indicator - minimal
-                    Div(
-                        Button(
-                            Div(
-                                Span("Scroll to explore", cls="text-white/70 text-xs sm:text-sm font-light mb-2"),
-                                I(data_lucide="chevron-down", cls="w-5 h-5 sm:w-6 sm:h-6 text-white/70 animate-bounce mx-auto"),
-                                cls="flex flex-col items-center"
-                            ),
-                            onclick="window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })",
-                            cls="hover:text-white transition-all duration-300 cursor-pointer bg-transparent border-0"
-                        ),
-                        cls="flex justify-center"
-                    ),
-                    cls="relative z-10 text-center px-4"
-                ),
-                cls="fixed inset-0 left-0 lg:left-64 flex items-center justify-center pt-20 sm:pt-20"
-            ),
+            HeroSection(animated_titles),
 
             # Spacer to push content down (invisible, takes up hero space)
             Div(cls="h-screen"),
@@ -371,11 +334,11 @@ def get():
                 # Skills section with colored icons
                 SkillsSection(),
 
-                # Services/Skills section
-                ServicesSection(SERVICES),
-
                 # Portfolio/Projects section
                 PortfolioSection(PROJECTS),
+
+                # Services/Skills section
+                ServicesSection(SERVICES),
 
                 # Contact section
                 ContactSection(
@@ -431,55 +394,6 @@ def get():
 
                 cls="relative z-30 bg-white"  # Slides over hero with higher z-index
             ),
-
-            # Typing animation script
-            Script(f"""
-                const titles = {animated_titles};
-                let titleIndex = 0;
-                let charIndex = 0;
-                let isDeleting = false;
-                const typingSpeed = 100;
-                const deletingSpeed = 50;
-                const pauseTime = 2000;
-
-                function typeEffect() {{
-                    const titleElement = document.getElementById('typing-text');
-                    if (!titleElement) return;
-
-                    const currentTitle = titles[titleIndex];
-
-                    if (!isDeleting) {{
-                        // Typing
-                        titleElement.textContent = currentTitle.substring(0, charIndex + 1);
-                        charIndex++;
-
-                        if (charIndex === currentTitle.length) {{
-                            // Finished typing, wait then start deleting
-                            isDeleting = true;
-                            setTimeout(typeEffect, pauseTime);
-                            return;
-                        }}
-                    }} else {{
-                        // Deleting
-                        titleElement.textContent = currentTitle.substring(0, charIndex - 1);
-                        charIndex--;
-
-                        if (charIndex === 0) {{
-                            // Finished deleting, move to next title
-                            isDeleting = false;
-                            titleIndex = (titleIndex + 1) % titles.length;
-                        }}
-                    }}
-
-                    const speed = isDeleting ? deletingSpeed : typingSpeed;
-                    setTimeout(typeEffect, speed);
-                }}
-
-                // Start animation when page loads
-                document.addEventListener('DOMContentLoaded', () => {{
-                    setTimeout(typeEffect, 500);
-                }});
-            """),
 
             # Initialize Lucide icons
             Script("""
