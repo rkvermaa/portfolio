@@ -48,13 +48,13 @@ def PortfolioSection(projects_list):
                             # Large icon in center
                             Div(
                                 I(data_lucide=project.get('icon', 'code'), cls="w-24 h-24 text-white/80 drop-shadow-2xl"),
-                                cls="absolute inset-0 flex items-center justify-center transition-transform duration-500 group-hover:scale-110"
+                                cls="absolute inset-0 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-[.active]:scale-110"
                             ),
 
-                            # Dark overlay on hover
-                            Div(cls="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"),
+                            # Dark overlay on hover/click
+                            Div(cls="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500"),
 
-                            # Content overlay (appears on hover)
+                            # Content overlay (appears on hover/click)
                             Div(
                                 # Title at top (always visible)
                                 Div(
@@ -65,7 +65,7 @@ def PortfolioSection(projects_list):
                                     cls="absolute top-6 left-6 right-6"
                                 ),
 
-                                # Bottom content (appears on hover)
+                                # Bottom content (appears on hover/click)
                                 Div(
                                     # Description
                                     P(
@@ -85,13 +85,14 @@ def PortfolioSection(projects_list):
                                         cls="flex flex-wrap gap-2"
                                     ),
 
-                                    cls="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500"
+                                    cls="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transform translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0 transition-all duration-500"
                                 ),
 
                                 cls="absolute inset-0"
                             ),
 
-                            cls="relative h-96 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
+                            cls="relative h-96 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] cursor-pointer",
+                            onclick="this.parentElement.classList.toggle('active')"
                         ),
 
                         cls="group fade-in-scroll"

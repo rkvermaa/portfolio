@@ -33,7 +33,7 @@ def HeroSection(animated_titles):
                     "|",
                     cls="text-lg sm:text-xl md:text-3xl lg:text-4xl text-purple-400 animate-blink ml-1"
                 ),
-                cls="mb-6 sm:mb-10 px-4"
+                cls="mb-6 sm:mb-10"
             ),
             # Scroll indicator - minimal
             Div(
