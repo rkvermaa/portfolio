@@ -3,7 +3,7 @@ Modern Contact Section with Map Background
 """
 from fasthtml.common import *
 
-def ContactSection(email="your@email.com", phone="+91 XXXXX XXXXX", location="India", linkedin="#", github="#", twitter="#", instagram="#"):
+def ContactSection(email="your@email.com", phone="+91 XXXXX XXXXX", location="India", linkedin="#", github="#", twitter="#", instagram="#", web3forms_key=""):
     """
     Creates a stunning contact section with map background and contact form.
     """
@@ -44,7 +44,7 @@ def ContactSection(email="your@email.com", phone="+91 XXXXX XXXXX", location="In
                             Input(
                                 type="hidden",
                                 name="access_key",
-                                value="YOUR_ACCESS_KEY_HERE"
+                                value=web3forms_key
                             ),
 
                             # Redirect URL after submission (optional - keeps user on your site)

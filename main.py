@@ -24,7 +24,7 @@ from components.contact import ContactSection
 # Import configuration data
 from config import (
     PERSONAL_INFO, SKILLS, HERO, SERVICES,
-    EXPERIENCE, PROJECTS
+    EXPERIENCE, PROJECTS, WEB3FORMS_ACCESS_KEY
 )
 
 # Create the FastHTML app with Tailwind CSS + custom CSS
@@ -383,7 +383,8 @@ def get():
                     phone=PERSONAL_INFO["phone"],
                     location=PERSONAL_INFO["location"],
                     linkedin=PERSONAL_INFO["linkedin"],
-                    github=PERSONAL_INFO["github"]
+                    github=PERSONAL_INFO["github"],
+                    web3forms_key=WEB3FORMS_ACCESS_KEY
                 ),
 
                 # Footer

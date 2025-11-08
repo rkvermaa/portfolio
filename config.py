@@ -7,6 +7,9 @@ Teaching moment:
 - In a production app, this might come from a database or CMS
 """
 
+# Web3Forms Access Key for contact form
+WEB3FORMS_ACCESS_KEY = "6966093a-93c7-4b63-b7a9-e7b303b92b6d"
+
 # Personal Information
 PERSONAL_INFO = {
     "name": "Ravi Kumar Verma",
