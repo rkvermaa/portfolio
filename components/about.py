@@ -61,16 +61,8 @@ def AboutSection():
             # Section heading
             Div(
                 H2("Who am I?", cls="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center"),
+                P("Full-Stack AI Engineer turning complex data into intelligent solutions", cls="text-lg text-gray-600 mb-6 text-center"),
                 Div(cls="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-12"),
-                cls="mb-16 fade-in-scroll"
-            ),
-
-            # Hook line
-            Div(
-                H3(
-                    "Full-Stack AI Engineer turning complex data into intelligent solutions",
-                    cls="text-2xl md:text-3xl font-light text-gray-700 text-center max-w-4xl mx-auto leading-relaxed"
-                ),
                 cls="mb-16 fade-in-scroll"
             ),
 

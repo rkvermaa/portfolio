@@ -50,11 +50,11 @@ def ModernSidebar(name="Your Name", title="Your Title", subtitle="", email="your
                     cls="relative w-28 h-28 mx-auto mb-4"
                 ),
                 # Name
-                H2(name, cls="text-2xl font-bold text-white text-center mb-2"),
+                H2(name, cls="text-lg font-bold text-white text-center mb-2 leading-tight"),
                 # Title (smaller than name)
-                P(title, cls="text-sm text-blue-200 text-center mb-1 px-2 font-medium"),
+                P(title, cls="text-xs text-blue-200 text-center mb-1 px-2 font-medium"),
                 # Subtitle (smaller than title)
-                P(subtitle, cls="text-xs text-blue-300/80 text-center mb-4 px-2"),
+                P(subtitle, cls="text-[10px] text-blue-300/80 text-center mb-3 px-2"),
 
                 cls="mb-6"
             ),
@@ -111,11 +111,11 @@ def ModernSidebar(name="Your Name", title="Your Title", subtitle="", email="your
 
             # Skills grouped by category
             Div(
-                H3("Skills", cls="text-white text-xl font-semibold mb-3 text-center text-base"),
+                H3("Skills", cls="text-white text-sm font-semibold mb-2 text-center"),
 
                 # AI & GenAI Category
                 Div(
-                    Span("AI & GenAI", cls="text-blue-300 text-sm font-semibold mb-2 block"),
+                    Span("AI & GenAI", cls="text-blue-300 text-[11px] font-semibold mb-1 block"),
                     Div(
                         Span("Python", cls="category-chip"),
                         Span("LLM", cls="category-chip"),
@@ -123,14 +123,14 @@ def ModernSidebar(name="Your Name", title="Your Title", subtitle="", email="your
                         Span("RAG", cls="category-chip"),
                         Span("Prompt Eng", cls="category-chip"),
                         Span("Multi-Agent", cls="category-chip"),
-                        cls="flex flex-wrap gap-1.5"
+                        cls="flex flex-wrap gap-1"
                     ),
-                    cls="mb-3"
+                    cls="mb-2"
                 ),
 
                 # ML & NLP Category
                 Div(
-                    Span("ML & NLP", cls="text-blue-300 text-sm font-semibold mb-2 block"),
+                    Span("ML & NLP", cls="text-blue-300 text-[11px] font-semibold mb-1 block"),
                     Div(
                         Span("ML", cls="category-chip"),
                         Span("Deep Learning", cls="category-chip"),
@@ -138,14 +138,14 @@ def ModernSidebar(name="Your Name", title="Your Title", subtitle="", email="your
                         Span("Classification", cls="category-chip"),
                         Span("Clustering", cls="category-chip"),
                         Span("PyTorch", cls="category-chip"),
-                        cls="flex flex-wrap gap-1.5"
+                        cls="flex flex-wrap gap-1"
                     ),
-                    cls="mb-3"
+                    cls="mb-2"
                 ),
 
                 # Frameworks Category
                 Div(
-                    Span("Frameworks", cls="text-blue-300 text-sm font-semibold mb-2 block"),
+                    Span("Frameworks", cls="text-blue-300 text-[11px] font-semibold mb-1 block"),
                     Div(
                         Span("LangChain", cls="category-chip"),
                         Span("LangGraph", cls="category-chip"),
@@ -153,14 +153,14 @@ def ModernSidebar(name="Your Name", title="Your Title", subtitle="", email="your
                         Span("Pandas", cls="category-chip"),
                         Span("Scikit-learn", cls="category-chip"),
                         Span("TensorFlow", cls="category-chip"),
-                        cls="flex flex-wrap gap-1.5"
+                        cls="flex flex-wrap gap-1"
                     ),
-                    cls="mb-3"
+                    cls="mb-2"
                 ),
 
                 # Data & Databases Category
                 Div(
-                    Span("Data & DBs", cls="text-blue-300 text-sm font-semibold mb-2 block"),
+                    Span("Data & DBs", cls="text-blue-300 text-[11px] font-semibold mb-1 block"),
                     Div(
                         Span("SQL", cls="category-chip"),
                         Span("PostgreSQL", cls="category-chip"),
@@ -168,14 +168,14 @@ def ModernSidebar(name="Your Name", title="Your Title", subtitle="", email="your
                         Span("Vector DBs", cls="category-chip"),
                         Span("PySpark", cls="category-chip"),
                         Span("Redis", cls="category-chip"),
-                        cls="flex flex-wrap gap-1.5"
+                        cls="flex flex-wrap gap-1"
                     ),
-                    cls="mb-3"
+                    cls="mb-2"
                 ),
 
                 # Cloud & DevOps Category
                 Div(
-                    Span("Cloud & DevOps", cls="text-blue-300 text-sm font-semibold mb-2 block"),
+                    Span("Cloud & DevOps", cls="text-blue-300 text-[11px] font-semibold mb-1 block"),
                     Div(
                         Span("AWS", cls="category-chip"),
                         Span("Docker", cls="category-chip"),
@@ -183,12 +183,12 @@ def ModernSidebar(name="Your Name", title="Your Title", subtitle="", email="your
                         Span("CI/CD", cls="category-chip"),
                         Span("MLFlow", cls="category-chip"),
                         Span("Langsmith", cls="category-chip"),
-                        cls="flex flex-wrap gap-1.5"
+                        cls="flex flex-wrap gap-1"
                     ),
-                    cls="mb-3"
+                    cls="mb-2"
                 ),
 
-                cls="mb-6 px-2"
+                cls="mb-5 px-2"
             ),
 
             # Download CV button - attractive glowy gradient pill
@@ -201,12 +201,13 @@ def ModernSidebar(name="Your Name", title="Your Title", subtitle="", email="your
             cls="p-6 pt-10"
         ),
 
-        # Dark transparent overlay without blur
+        # Frosted glass sidebar with spacing and rounded corners
         cls="""
-            fixed left-0 top-0 h-screen w-80 z-50
-            bg-slate-900/30
-            border-r border-white/20
-            shadow-2xl
+            fixed left-4 top-4 bottom-4 w-64 z-50
+            bg-white/30 backdrop-blur-md
+            border border-gray-300/50
+            rounded-3xl
+            shadow-lg
             overflow-y-auto
             scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent
             hidden lg:block

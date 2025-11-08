@@ -34,7 +34,7 @@ app, rt = fast_app(
         # Tailwind CSS via CDN
         Script(src="https://cdn.tailwindcss.com"),
         # Modern CSS for animations and custom styles
-        Link(rel="stylesheet", href="static/css/style.css?v=8"),
+        Link(rel="stylesheet", href="static/css/style.css?v=11"),
         # Google Fonts for modern typography
         Link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"),
         # Lucide Icons
@@ -80,7 +80,7 @@ def get():
         # Layer 1: Fixed background image that never moves
         Div(
             cls="fixed inset-0 bg-cover bg-center bg-no-repeat",
-            style="background-image: url('static/images/maxim-berg-qHJiyaCTVPw-unsplash.jpg');"
+            style="background-image: url('static/images/hero_9.jpg');"
         ),
 
         # Dark overlay to reduce brightness of background
@@ -88,7 +88,7 @@ def get():
             cls="fixed inset-0 bg-black/20"
         ),
 
-        # Layer 2: Scrollable sidebar
+        # Layer 2: Scrollable sidebar (width: 16rem/256px)
         ModernSidebar(
             name=PERSONAL_INFO["name"],
             title=PERSONAL_INFO["title"],
@@ -108,7 +108,188 @@ def get():
 
         # Layer 3: Scrollable main content with light transparent overlay
         Div(
-            # Full-width navigation bar from sidebar edge to right edge
+            # Mobile hamburger menu button - only visible on mobile
+            Button(
+                I(data_lucide="menu", cls="w-6 h-6"),
+                onclick="document.getElementById('mobile-sidebar').classList.toggle('translate-x-full')",
+                cls="fixed top-4 left-4 z-50 lg:hidden bg-white/30 backdrop-blur-md p-2 rounded-full shadow-lg border border-gray-300/50 hover:bg-white/50 transition-all"
+            ),
+
+            # Mobile sidebar drawer - slides in from right
+            Div(
+                # Close button
+                Button(
+                    I(data_lucide="x", cls="w-6 h-6"),
+                    onclick="document.getElementById('mobile-sidebar').classList.add('translate-x-full')",
+                    cls="absolute top-4 right-4 bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all"
+                ),
+
+                # Sidebar content for mobile
+                Div(
+                    # Profile section
+                    Div(
+                        Div(
+                            Img(
+                                src=PERSONAL_INFO["profile_image"],
+                                alt=PERSONAL_INFO["name"],
+                                cls="w-24 h-24 rounded-full border-2 border-blue-400/50 shadow-xl mx-auto"
+                            ),
+                            cls="mb-4"
+                        ),
+                        H2(PERSONAL_INFO["name"], cls="text-lg font-bold text-white text-center mb-2 leading-tight"),
+                        P(PERSONAL_INFO["title"], cls="text-xs text-blue-200 text-center mb-1 px-2"),
+                        P(PERSONAL_INFO["subtitle"], cls="text-[10px] text-blue-300/80 text-center mb-4 px-2"),
+                        cls="mb-5"
+                    ),
+
+                    # Social links
+                    Div(
+                        A(I(data_lucide="linkedin", cls="w-4 h-4"), href=PERSONAL_INFO.get("linkedin", "#"), target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors"),
+                        A(I(data_lucide="github", cls="w-4 h-4"), href=PERSONAL_INFO.get("github", "#"), target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors"),
+                        A(I(data_lucide="facebook", cls="w-4 h-4"), href=PERSONAL_INFO.get("twitter", "#"), target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors"),
+                        A(I(data_lucide="instagram", cls="w-4 h-4"), href=PERSONAL_INFO.get("instagram", "#"), target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors"),
+                        cls="flex gap-5 justify-center mb-5"
+                    ),
+
+                    # Contact info - properly aligned
+                    Div(
+                        Div(
+                            Span("Email:", cls="text-white/70 text-xs font-bold"),
+                            A(PERSONAL_INFO["email"], href=f"mailto:{PERSONAL_INFO['email']}", cls="text-white/80 text-xs hover:text-blue-400 transition-colors break-all"),
+                            cls="flex justify-between mb-2 px-2 gap-2"
+                        ),
+                        Div(
+                            Span("Language:", cls="text-white/70 text-xs font-bold"),
+                            Span("Hindi, English", cls="text-white/80 text-xs"),
+                            cls="flex justify-between mb-2 px-2"
+                        ),
+                        Div(
+                            Span("Phone:", cls="text-white/70 text-xs font-bold"),
+                            Span(PERSONAL_INFO["phone"], cls="text-white/80 text-xs"),
+                            cls="flex justify-between mb-2 px-2"
+                        ),
+                        Div(
+                            Span("Location:", cls="text-white/70 text-xs font-bold"),
+                            Span(PERSONAL_INFO["location"], cls="text-white/80 text-xs"),
+                            cls="flex justify-between mb-2 px-2"
+                        ),
+                        Div(
+                            Span("Age:", cls="text-white/70 text-xs font-bold"),
+                            Span(PERSONAL_INFO.get("age", "25 Years"), cls="text-white/80 text-xs"),
+                            cls="flex justify-between mb-2 px-2"
+                        ),
+                        Div(
+                            Span("Freelance:", cls="text-white/70 text-xs font-bold"),
+                            Span(PERSONAL_INFO.get("freelance", "Available"), cls="text-green-400 text-xs font-medium"),
+                            cls="flex justify-between mb-2 px-2"
+                        ),
+                        cls="mb-5 py-3 border-t border-b border-white/10"
+                    ),
+
+                    # Skills section - compact pills
+                    Div(
+                        H3("Skills", cls="text-white text-sm font-semibold mb-2 text-center"),
+
+                        # AI & GenAI Category
+                        Div(
+                            Span("AI & GenAI", cls="text-blue-200 text-[11px] font-semibold mb-1 block"),
+                            Div(
+                                Span("Python", cls="mobile-skill-chip"),
+                                Span("LLM", cls="mobile-skill-chip"),
+                                Span("GenAI", cls="mobile-skill-chip"),
+                                Span("RAG", cls="mobile-skill-chip"),
+                                Span("Prompt Eng", cls="mobile-skill-chip"),
+                                Span("Multi-Agent", cls="mobile-skill-chip"),
+                                cls="flex flex-wrap gap-1"
+                            ),
+                            cls="mb-2"
+                        ),
+
+                        # ML & NLP Category
+                        Div(
+                            Span("ML & NLP", cls="text-blue-200 text-[11px] font-semibold mb-1 block"),
+                            Div(
+                                Span("ML", cls="mobile-skill-chip"),
+                                Span("Deep Learning", cls="mobile-skill-chip"),
+                                Span("NLP", cls="mobile-skill-chip"),
+                                Span("Classification", cls="mobile-skill-chip"),
+                                Span("Clustering", cls="mobile-skill-chip"),
+                                Span("PyTorch", cls="mobile-skill-chip"),
+                                cls="flex flex-wrap gap-1"
+                            ),
+                            cls="mb-2"
+                        ),
+
+                        # Frameworks Category
+                        Div(
+                            Span("Frameworks", cls="text-blue-200 text-[11px] font-semibold mb-1 block"),
+                            Div(
+                                Span("LangChain", cls="mobile-skill-chip"),
+                                Span("LangGraph", cls="mobile-skill-chip"),
+                                Span("FastAPI", cls="mobile-skill-chip"),
+                                Span("Pandas", cls="mobile-skill-chip"),
+                                Span("Scikit-learn", cls="mobile-skill-chip"),
+                                Span("TensorFlow", cls="mobile-skill-chip"),
+                                cls="flex flex-wrap gap-1"
+                            ),
+                            cls="mb-2"
+                        ),
+
+                        # Data & Databases Category
+                        Div(
+                            Span("Data & DBs", cls="text-blue-200 text-[11px] font-semibold mb-1 block"),
+                            Div(
+                                Span("SQL", cls="mobile-skill-chip"),
+                                Span("PostgreSQL", cls="mobile-skill-chip"),
+                                Span("MongoDB", cls="mobile-skill-chip"),
+                                Span("Vector DBs", cls="mobile-skill-chip"),
+                                Span("PySpark", cls="mobile-skill-chip"),
+                                Span("Redis", cls="mobile-skill-chip"),
+                                cls="flex flex-wrap gap-1"
+                            ),
+                            cls="mb-2"
+                        ),
+
+                        # Cloud & DevOps Category
+                        Div(
+                            Span("Cloud & DevOps", cls="text-blue-200 text-[11px] font-semibold mb-1 block"),
+                            Div(
+                                Span("AWS", cls="mobile-skill-chip"),
+                                Span("Docker", cls="mobile-skill-chip"),
+                                Span("Kubernetes", cls="mobile-skill-chip"),
+                                Span("CI/CD", cls="mobile-skill-chip"),
+                                Span("MLFlow", cls="mobile-skill-chip"),
+                                Span("Langsmith", cls="mobile-skill-chip"),
+                                cls="flex flex-wrap gap-1"
+                            ),
+                            cls="mb-2"
+                        ),
+
+                        cls="mb-5 px-2"
+                    ),
+
+                    # Download CV button
+                    A(
+                        "Download CV",
+                        href="static/cv.pdf",
+                        cls="block w-full py-3 px-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 text-white text-center rounded-full text-sm font-bold transition-all duration-300 hover:scale-105 shadow-lg"
+                    ),
+
+                    cls="p-6 pt-16"
+                ),
+
+                id="mobile-sidebar",
+                cls="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] z-50 bg-gradient-to-br from-blue-600/95 to-purple-600/95 backdrop-blur-md shadow-2xl transform translate-x-full transition-transform duration-300 overflow-y-auto lg:hidden"
+            ),
+
+            # Overlay when mobile menu is open
+            Div(
+                onclick="document.getElementById('mobile-sidebar').classList.add('translate-x-full')",
+                id="mobile-overlay",
+                cls="hidden"
+            ),
+
+            # Desktop navigation bar (full menu with glassy background)
             Nav(
                 Div(
                     A("Home", href="#hero", cls="nav-link"),
@@ -117,10 +298,17 @@ def get():
                     A("Skills", href="#skills", cls="nav-link"),
                     A("Portfolio", href="#portfolio", cls="nav-link"),
                     A("Services", href="#services", cls="nav-link"),
-                    A("Contact", href="#contact", cls="contact-btn"),
-                    cls="flex items-center justify-center gap-2"
+                    A("Contact", href="#contact", cls="px-5 py-1.5 bg-gray-900 text-white font-semibold text-sm rounded-full hover:bg-gray-800 transition-all duration-300"),
+                    cls="flex items-center justify-center gap-3"
                 ),
-                cls="fixed top-0 left-0 lg:left-80 right-0 z-40 bg-white/30 backdrop-blur-md px-12 py-3 shadow-lg border-b border-gray-300/50"
+                cls="hidden lg:block fixed top-4 left-[17rem] right-4 z-40 bg-white/30 backdrop-blur-md px-4 py-1.5 shadow-lg border border-gray-300/50 rounded-full max-w-fit mx-auto"
+            ),
+
+            # Mobile Contact button (right side, no glassy background)
+            A(
+                "Contact",
+                href="#contact",
+                cls="lg:hidden fixed top-4 right-4 z-40 px-5 py-2.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 text-white font-bold text-sm rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
             ),
 
             # Hero section - FIXED like background, doesn't scroll
@@ -130,28 +318,28 @@ def get():
                     P(
                         Span("Hi There!", cls="font-bold"),
                         Span(" 👋", cls="inline-block wave-hand"),
-                        cls="text-xl md:text-2xl text-blue-200 mb-6 animate-fade-in tracking-wide"
+                        cls="text-lg sm:text-xl md:text-2xl text-blue-200 mb-4 sm:mb-6 animate-fade-in tracking-wide"
                     ),
                     # I Am [typing animation] - cycles through name and titles
                     Div(
-                        Span("I Am ", cls="text-xl md:text-3xl lg:text-4xl text-white font-light"),
+                        Span("I Am ", cls="text-lg sm:text-xl md:text-3xl lg:text-4xl text-white font-light"),
                         Span(
                             "",
                             id="typing-text",
-                            cls="text-xl md:text-3xl lg:text-4xl text-blue-400 font-bold"
+                            cls="text-lg sm:text-xl md:text-3xl lg:text-4xl text-blue-400 font-bold"
                         ),
                         Span(
                             "|",
-                            cls="text-xl md:text-3xl lg:text-4xl text-blue-400 animate-blink ml-1"
+                            cls="text-lg sm:text-xl md:text-3xl lg:text-4xl text-blue-400 animate-blink ml-1"
                         ),
-                        cls="mb-10"
+                        cls="mb-6 sm:mb-10 px-4"
                     ),
                     # Scroll indicator - minimal
                     Div(
                         Button(
                             Div(
-                                Span("Scroll to explore", cls="text-white/70 text-sm font-light mb-2"),
-                                I(data_lucide="chevron-down", cls="w-6 h-6 text-white/70 animate-bounce mx-auto"),
+                                Span("Scroll to explore", cls="text-white/70 text-xs sm:text-sm font-light mb-2"),
+                                I(data_lucide="chevron-down", cls="w-5 h-5 sm:w-6 sm:h-6 text-white/70 animate-bounce mx-auto"),
                                 cls="flex flex-col items-center"
                             ),
                             onclick="window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })",
@@ -159,9 +347,9 @@ def get():
                         ),
                         cls="flex justify-center"
                     ),
-                    cls="relative z-10 text-center"
+                    cls="relative z-10 text-center px-4"
                 ),
-                cls="fixed inset-0 left-0 lg:left-80 flex items-center justify-center pt-20"
+                cls="fixed inset-0 left-0 lg:left-64 flex items-center justify-center pt-20 sm:pt-20"
             ),
 
             # Spacer to push content down (invisible, takes up hero space)
@@ -289,6 +477,55 @@ def get():
             Script("""
                 document.addEventListener('DOMContentLoaded', () => {
                     lucide.createIcons();
+
+                    // Close mobile menu when clicking on navigation links
+                    const mobileNavLinks = document.querySelectorAll('nav a');
+                    const mobileSidebar = document.getElementById('mobile-sidebar');
+
+                    mobileNavLinks.forEach(link => {
+                        link.addEventListener('click', () => {
+                            if (mobileSidebar && !mobileSidebar.classList.contains('translate-x-full')) {
+                                mobileSidebar.classList.add('translate-x-full');
+                            }
+                        });
+                    });
+                });
+            """),
+
+            # Active navbar pill indicator
+            Script("""
+                // Update active nav link based on scroll position
+                document.addEventListener('DOMContentLoaded', () => {
+                    const sections = document.querySelectorAll('section[id]');
+                    const navLinks = document.querySelectorAll('.nav-link');
+
+                    function updateActiveLink() {
+                        let current = '';
+
+                        sections.forEach(section => {
+                            const sectionTop = section.offsetTop;
+                            const sectionHeight = section.clientHeight;
+                            if (scrollY >= sectionTop - 200) {
+                                current = section.getAttribute('id');
+                            }
+                        });
+
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + current) {
+                                link.classList.add('active');
+                            }
+                        });
+
+                        // Set Home as active when at top
+                        if (scrollY < 300) {
+                            navLinks.forEach(link => link.classList.remove('active'));
+                            navLinks[0].classList.add('active');
+                        }
+                    }
+
+                    window.addEventListener('scroll', updateActiveLink);
+                    updateActiveLink(); // Initial call
                 });
             """),
 
@@ -315,7 +552,7 @@ def get():
                 });
             """),
 
-            cls="ml-0 lg:ml-80 relative"  # Offset by sidebar width
+            cls="ml-0 lg:ml-64 relative"  # Offset by sidebar width
         )
     )
 

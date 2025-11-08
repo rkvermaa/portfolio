@@ -40,7 +40,7 @@ def ContactSection(email="your@email.com", phone="+91 XXXXX XXXXX", location="In
 
                         # Form
                         Form(
-                            # Name and Email in one row
+                            # Name and Email in one row on desktop, stacked on mobile
                             Div(
                                 Div(
                                     Input(
@@ -62,7 +62,7 @@ def ContactSection(email="your@email.com", phone="+91 XXXXX XXXXX", location="In
                                     ),
                                     cls="flex-1"
                                 ),
-                                cls="flex gap-4 mb-4"
+                                cls="flex flex-col sm:flex-row gap-4 mb-4"
                             ),
 
                             # Subject
@@ -94,14 +94,14 @@ def ContactSection(email="your@email.com", phone="+91 XXXXX XXXXX", location="In
                             action="/contact"
                         ),
 
-                        cls="p-8 rounded-2xl bg-white shadow-lg border border-gray-200"
+                        cls="p-4 sm:p-8 rounded-2xl bg-white shadow-lg border border-gray-200"
                     ),
                     cls="fade-in-scroll"
                 ),
 
                 # Right side - Contact Information
                 Div(
-                    H3("Contact Information", cls="text-2xl font-bold text-gray-800 mb-6"),
+                    H3("Contact Information", cls="text-xl sm:text-2xl font-bold text-gray-800 mb-6"),
 
                     # Contact items
                     Div(
