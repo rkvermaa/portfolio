@@ -14,3 +14,8 @@ reference_portfolio_website/
 *.zip
 llms-ctx.txt
 .sesskey
+CLAUDE.md
+
+# Zensical cache (but keep built site)
+learning/.cache/
+

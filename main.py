@@ -106,6 +106,7 @@ def get():
             freelance=PERSONAL_INFO.get("freelance", "Available"),
             linkedin=PERSONAL_INFO.get("linkedin", "#"),
             github=PERSONAL_INFO.get("github", "#"),
+            medium=PERSONAL_INFO.get("medium", "#"),
             twitter=PERSONAL_INFO.get("twitter", "#"),
             instagram=PERSONAL_INFO.get("instagram", "#"),
             profile_image=PERSONAL_INFO["profile_image"],
@@ -152,8 +153,8 @@ def get():
                     Div(
                         A(I(data_lucide="linkedin", cls="w-4 h-4"), href=PERSONAL_INFO.get("linkedin", "#"), target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors"),
                         A(I(data_lucide="github", cls="w-4 h-4"), href=PERSONAL_INFO.get("github", "#"), target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors"),
-                        A(I(data_lucide="facebook", cls="w-4 h-4"), href=PERSONAL_INFO.get("twitter", "#"), target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors"),
-                        A(I(data_lucide="instagram", cls="w-4 h-4"), href=PERSONAL_INFO.get("instagram", "#"), target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors"),
+                        A(I(data_lucide="pen-line", cls="w-4 h-4"), href=PERSONAL_INFO.get("medium", "#"), target="_blank", cls="text-white/60 hover:text-emerald-400 transition-colors", title="Medium"),
+                        A(I(data_lucide="graduation-cap", cls="w-4 h-4"), href="static/coming-soon.html", target="_blank", cls="text-white/60 hover:text-teal-400 transition-colors", title="Learning Hub"),
                         cls="flex gap-5 justify-center mb-5"
                     ),
 
@@ -274,6 +275,18 @@ def get():
                         cls="mb-5 px-2"
                     ),
 
+                    # Learning Hub button
+                    A(
+                        Div(
+                            I(data_lucide="graduation-cap", cls="w-5 h-5 mr-2"),
+                            Span("Learning Hub", cls="font-bold"),
+                            cls="flex items-center justify-center"
+                        ),
+                        href="static/coming-soon.html",
+                        target="_blank",
+                        cls="block w-full py-3 px-6 mb-3 bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-600 hover:from-emerald-500 hover:via-teal-600 hover:to-cyan-700 text-white text-center rounded-full text-sm transition-all duration-300 hover:scale-105 shadow-lg"
+                    ),
+
                     # Download CV button
                     A(
                         "Download CV",
@@ -308,6 +321,15 @@ def get():
                     cls="flex items-center justify-center gap-3"
                 ),
                 cls="hidden lg:block fixed top-4 left-[17rem] right-4 z-40 bg-white/30 backdrop-blur-md px-4 py-1.5 shadow-lg border border-gray-300/50 rounded-full max-w-fit mx-auto"
+            ),
+
+            # Floating Learning Hub button - Desktop (aligned with navbar, expands on hover)
+            A(
+                I(data_lucide="graduation-cap", cls="w-4 h-4 transition-all duration-300"),
+                Span("Learning", cls="max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover:max-w-xs group-hover:opacity-100 group-hover:ml-1.5 transition-all duration-300 font-semibold text-xs"),
+                href="static/coming-soon.html",
+                target="_blank",
+                cls="hidden lg:flex group fixed top-5 right-6 z-50 h-10 px-3 bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-600 hover:from-emerald-500 hover:via-teal-600 hover:to-cyan-700 text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 items-center justify-center animate-pulse hover:animate-none hover:px-4"
             ),
 
             # Mobile Contact button (right side, no glassy background)

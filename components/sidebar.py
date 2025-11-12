@@ -8,7 +8,7 @@ from datetime import datetime
 
 def ModernSidebar(name="Your Name", title="Your Title", subtitle="", email="your@email.com",
                   phone="+91 XXXXX XXXXX", location="India", age="25 Years", birth_year=None, freelance="Available",
-                  linkedin="#", github="#", twitter="#", instagram="#",
+                  linkedin="#", github="#", medium="#", twitter="#", instagram="#",
                   profile_image="static/images/profile.jpg", skills_major=None):
     """
     Creates a modern glassmorphism sidebar.
@@ -68,10 +68,10 @@ def ModernSidebar(name="Your Name", title="Your Title", subtitle="", email="your
 
             # Social media icons
             Div(
-                A(I(data_lucide="linkedin", cls="w-4 h-4"), href=linkedin, target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors"),
-                A(I(data_lucide="github", cls="w-4 h-4"), href=github, target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors"),
-                A(I(data_lucide="facebook", cls="w-4 h-4"), href=twitter, target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors"),
-                A(I(data_lucide="instagram", cls="w-4 h-4"), href=instagram, target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors"),
+                A(I(data_lucide="linkedin", cls="w-4 h-4"), href=linkedin, target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors", title="LinkedIn"),
+                A(I(data_lucide="github", cls="w-4 h-4"), href=github, target="_blank", cls="text-white/60 hover:text-blue-400 transition-colors", title="GitHub"),
+                A(I(data_lucide="pen-line", cls="w-4 h-4"), href=medium, target="_blank", cls="text-white/60 hover:text-emerald-400 transition-colors", title="Medium"),
+                A(I(data_lucide="graduation-cap", cls="w-4 h-4"), href="static/coming-soon.html", target="_blank", cls="text-white/60 hover:text-teal-400 transition-colors", title="Learning Hub"),
                 cls="flex gap-5 justify-center mb-6"
             ),
 

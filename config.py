@@ -23,6 +23,7 @@ PERSONAL_INFO = {
     "freelance": "Available",
     "linkedin": "https://www.linkedin.com/in/ravi-kumar-verma-16837734/",  # Update with your LinkedIn
     "github": "https://github.com/rkvermaa",  # Update with your GitHub
+    "medium": "https://medium.com/@rkverma87",  # Update with your Medium profile
     "profile_image": "static/images/notion-avatar-1762452759393.png",  # Your Notion avatar
     # Typing animation titles (shown on hero section)
     "animated_titles": [
